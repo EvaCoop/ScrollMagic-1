@@ -26,16 +26,16 @@
  * @mixin animation.Velocity
  */
 (function (root, factory) {
-	if (typeof define === 'function' && define.amd) {
-		// AMD. Register as an anonymous module.
-		define(['ScrollMagic', 'velocity'], factory);
-	} else if (typeof exports === 'object') {
-		// CommonJS
-		factory(require('scrollmagic'), require('velocity'));
-	} else {
-		// Browser globals
-		factory(root.ScrollMagic || (root.jQuery && root.jQuery.ScrollMagic), root.Velocity || (root.jQuery && root.jQuery.Velocity));
-	}
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['ScrollMagic'], factory);
+    } else if (typeof exports === 'object') {
+        // CommonJS
+        factory(require('scrollmagic'));
+    } else {
+        // no browser global export needed, just execute
+        factory(ScrollMagic || (jQuery && jQuery.ScrollMagic));
+    }
 }(this, function (ScrollMagic, velocity) {
 	"use strict";
 	var NAMESPACE = "animation.velocity";
